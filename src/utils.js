@@ -1,17 +1,7 @@
-function hasPermission(user, permissionsNeeded) {
-  const matchedPermissions = user.permissions.filter(permissionTheyHave =>
-    permissionsNeeded.includes(permissionTheyHave)
-  );
-  if (!matchedPermissions.length) {
-    throw new Error(`You do not have sufficient permissions
-
-      : ${permissionsNeeded}
-
-      You Have:
-
-      ${user.permissions}
-      `);
-  }
+function validateEmail(mail) {
+  if (/\b[a-zA-Z0-9\u00C0-\u017F._%+-]+@[a-zA-Z0-9\u00C0-\u017F.-]+\.[a-zA-Z]{2,}\b/.test(mail)) {
+      return (true)
+  } return (false)
 }
 
-exports.hasPermission = hasPermission;
+exports.validateEmail = validateEmail;

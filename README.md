@@ -1,3 +1,3 @@
-# node-prisma-backend
+# kumarabhirup-backend
 
-Docs to be written soon.
+This empowers [kumar.now.sh](kumar.now.sh)
