@@ -1,4 +1,8 @@
-type User {
+type Contact {
   id: ID! @unique
-  name: String!
+  fullname: String!
+  phone: String
+  email: String!
+  subject: String!
+  message: String!
 }

@@ -1,11 +1,11 @@
 const Mutations = {
 
-    async createUser(parent, args, context, info){
-        const user = await context.db.mutation.createUser({
+    async createContact(parent, args, context, info){
+        const contact = await context.db.mutation.createContact({
             data: {...args}
         }, info)
-        console.log(user)
-        return user
+        console.log(contact)
+        return contact
     }
 
 };
