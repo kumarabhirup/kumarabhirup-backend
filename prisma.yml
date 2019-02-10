@@ -1,4 +1,4 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: ${env:FLEX_PRISMA_ENDPOINT}
 # secret: ${env:PRISMA_SECRET}
 datamodel: datamodel.prisma
 
