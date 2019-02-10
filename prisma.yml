@@ -1,5 +1,5 @@
-endpoint: ${env:FLEX_PRISMA_ENDPOINT}
-# secret: ${env:PRISMA_SECRET}
+endpoint: https://kumarabhirup-6bd5944cf1.herokuapp.com/kumarabhirup-backend/prod
+secret: ${env:PRISMA_MANAGEMENT_API_SECRET}
 datamodel: datamodel.prisma
 
 generate:
