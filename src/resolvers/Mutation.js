@@ -37,7 +37,7 @@ const Mutations = {
         .then(json => (json.valid))
         .catch(err => { throw new Error(`Error in apilayer API. ${err.message}`) })
 
-        if(args.phone != null && !isPhoneValid){
+        if(!isPhoneValid){
           throw new Error(`Please write a valid phone number.`)
         }
       }
