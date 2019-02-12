@@ -9,6 +9,7 @@ const resolvers = {
   Mutation
 }
 
+// start it
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
   resolvers,
