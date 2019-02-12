@@ -1,9 +1,9 @@
 # import * from './generated/prisma.graphql'
 
 type Mutation {
-    sendMessage(fullname: String!, phone: String, email: String!, subject: String!, message: String!, humanKey: String!): Contact!
+  sendMessage(fullname: String!, phone: String, email: String!, subject: String!, message: String!, humanKey: String!): Contact!
 }
 
 type Query {
-    contacts: [Contact]!
+  contacts: [Contact]!
 }

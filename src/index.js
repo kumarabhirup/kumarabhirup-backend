@@ -3,13 +3,21 @@ require('dotenv').config({ path: '.env' })
 const createServer = require('./createServer')
 const server = createServer()
 
-// USE MIDDLEWARES HERE
+// // Error handler
+// const errorHandler = (err, req, res, next) => {
+//   if (res.headersSent) {
+//     return next(err)
+//   }
+//   const { status } = err
+//   res.status(status).json(err)
+// }
+// app.use(errorHandler)
 
 server.start(
     {
         cors: {
             credentials: true,
-            origin: process.env.NODE_ENV = 'development' ? process.env.FRONTEND_URL : process.env.PROD_FRONTEND_URL
+            origin: process.env.PROD_FRONTEND_URL
         },
     }, 
     details => { console.log(`Server is now running on port http://localhost:${details.port}`) }
