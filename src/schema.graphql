@@ -1,5 +1,3 @@
-# import * from "./generated/prisma.graphql"
-
 scalar DateTime
 
 type Mutation {
@@ -8,4 +6,13 @@ type Mutation {
 
 type Query {
   contacts: [Contact]!
+}
+
+type Contact {
+  id: ID!
+  fullname: String!
+  phone: String
+  email: String!
+  subject: String!
+  message: String!
 }
