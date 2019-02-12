@@ -19,6 +19,9 @@ server.start(
             credentials: true,
             origin: process.env.PROD_FRONTEND_URL
         },
+        playground: '/',
+        endpoint: '/',
+        https: undefined
     }, 
     details => { console.log(`Server is now running on port http://localhost:${details.port}`) }
 )
