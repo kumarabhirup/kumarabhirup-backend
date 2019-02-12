@@ -1,0 +1,11 @@
+# import * from "./generated/prisma.graphql"
+
+scalar DateTime
+
+type Mutation {
+  sendMessage(fullname: String!, phone: String, email: String!, subject: String!, message: String!, humanKey: String!): Contact!
+}
+
+type Query {
+  contacts: [Contact]!
+}
