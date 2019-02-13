@@ -1,3 +1,5 @@
+require('dotenv').config({ path: '.env' })
+
 const { GraphQLServer } = require('graphql-yoga')
 const { prisma } = require('./generated/prisma-client')
 
@@ -18,6 +20,7 @@ const server = new GraphQLServer({
     prisma,
   }),
 })
+
 server.start(
   {
     cors: {

@@ -1,6 +1,9 @@
+require('es6-promise').polyfill()
+require('isomorphic-fetch')
+
 const { validateEmail } = require('../utils')
 
-async function sendMessage(parent, args, context, info){
+async function sendMessage(parent, args, context){
 
   const data = { ...args }
   delete data.humanKey
@@ -55,7 +58,7 @@ async function sendMessage(parent, args, context, info){
   }
 
   // JUST DO IT!!!
-  const contact = await context.db.mutation.createContact({data}, info)
+  const contact = await context.prisma.createContact({...data})
   return contact
 
 }
