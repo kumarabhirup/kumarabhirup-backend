@@ -6,15 +6,13 @@ const { prisma } = require('./generated/prisma-client')
 const Query = require('./resolvers/Query')
 const Mutation = require('./resolvers/Mutation')
 
-const resolvers = {
-  Query,
-  Mutation
-}
-
 // start it
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
-  resolvers,
+  resolvers: {
+    Query,
+    Mutation
+  },
   context: request => ({
     ...request,
     prisma,
@@ -25,8 +23,8 @@ server.start(
   {
     cors: {
       credentials: true,
-      origin: "http://localhost:3006"
+      origin: process.NODE_ENV === 'development' ? process.env.FRONTEND_URL : process.env.PROD_FRONTEND_URL
     },
   },
-  () => console.log(`Server is running on http://localhost:4000`)
+  details => console.log(`Server is running on http://localhost:${details.port}`)
 )
