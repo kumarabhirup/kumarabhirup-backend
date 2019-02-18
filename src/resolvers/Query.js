@@ -1,11 +1,7 @@
-const { forwardTo } = require('prisma-binding')
+async function contacts(parent, args, context, info) {
+  throw new Error(`I cannot reveal the messages I received. Sorry.`)
+}
 
-const Query = {
-
-    async contacts(parent, args, context, info) {
-        throw new Error(`I cannot reveal the messages I received. Sorry.`)
-    }
-    
-};
-
-module.exports = Query;
+module.exports = {
+  contacts
+}

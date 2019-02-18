@@ -4,4 +4,6 @@ function validateEmail(mail) {
   } return (false)
 }
 
-exports.validateEmail = validateEmail;
+module.exports = {
+  validateEmail
+}
