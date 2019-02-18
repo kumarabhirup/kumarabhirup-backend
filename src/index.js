@@ -20,11 +20,11 @@ const server = new GraphQLServer({
 })
 
 server.start(
-  {
-    cors: {
-      credentials: true,
-      origin: process.NODE_ENV === 'development' ? process.env.FRONTEND_URL : process.env.PROD_FRONTEND_URL
-    },
-  },
+  // {
+  //   cors: {
+  //     credentials: true,
+  //     origin: process.NODE_ENV === 'development' ? process.env.FRONTEND_URL : process.env.PROD_FRONTEND_URL
+  //   },
+  // },
   details => console.log(`Server is running on http://localhost:${details.port}`)
 )
