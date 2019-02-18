@@ -14,6 +14,8 @@ type Contact {
   email: String!
   subject: String!
   message: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type ContactConnection {
@@ -48,10 +50,10 @@ enum ContactOrderByInput {
   subject_DESC
   message_ASC
   message_DESC
-  createdAt_ASC
-  createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type ContactPreviousValues {
@@ -61,6 +63,8 @@ type ContactPreviousValues {
   email: String!
   subject: String!
   message: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type ContactSubscriptionPayload {
@@ -182,6 +186,22 @@ input ContactWhereInput {
   message_not_starts_with: String
   message_ends_with: String
   message_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [ContactWhereInput!]
   OR: [ContactWhereInput!]
   NOT: [ContactWhereInput!]
@@ -190,6 +210,8 @@ input ContactWhereInput {
 input ContactWhereUniqueInput {
   id: ID
 }
+
+scalar DateTime
 
 scalar Long
 
