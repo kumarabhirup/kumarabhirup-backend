@@ -22,7 +22,7 @@ const server = new GraphQLServer({
 server.start(
   {
     cors: {
-      credentials: false,
+      credentials: true,
       origin: process.NODE_ENV === 'development' ? process.env.FRONTEND_URL : process.env.PROD_FRONTEND_URL
     },
   },
