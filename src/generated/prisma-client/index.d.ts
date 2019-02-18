@@ -112,10 +112,10 @@ export type ContactOrderByInput =
   | "subject_DESC"
   | "message_ASC"
   | "message_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "updatedAt_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -208,6 +208,22 @@ export interface ContactWhereInput {
   message_not_starts_with?: String;
   message_ends_with?: String;
   message_not_ends_with?: String;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
   AND?: ContactWhereInput[] | ContactWhereInput;
   OR?: ContactWhereInput[] | ContactWhereInput;
   NOT?: ContactWhereInput[] | ContactWhereInput;
@@ -259,6 +275,8 @@ export interface Contact {
   email: String;
   subject: String;
   message: String;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
 }
 
 export interface ContactPromise extends Promise<Contact>, Fragmentable {
@@ -268,6 +286,8 @@ export interface ContactPromise extends Promise<Contact>, Fragmentable {
   email: () => Promise<String>;
   subject: () => Promise<String>;
   message: () => Promise<String>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ContactSubscription
@@ -279,6 +299,8 @@ export interface ContactSubscription
   email: () => Promise<AsyncIterator<String>>;
   subject: () => Promise<AsyncIterator<String>>;
   message: () => Promise<AsyncIterator<String>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface ContactConnection {
@@ -406,6 +428,8 @@ export interface ContactPreviousValues {
   email: String;
   subject: String;
   message: String;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
 }
 
 export interface ContactPreviousValuesPromise
@@ -417,6 +441,8 @@ export interface ContactPreviousValuesPromise
   email: () => Promise<String>;
   subject: () => Promise<String>;
   message: () => Promise<String>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ContactPreviousValuesSubscription
@@ -428,6 +454,8 @@ export interface ContactPreviousValuesSubscription
   email: () => Promise<AsyncIterator<String>>;
   subject: () => Promise<AsyncIterator<String>>;
   message: () => Promise<AsyncIterator<String>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 /*
@@ -440,6 +468,16 @@ export type ID_Output = string;
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
 export type String = string;
+
+/*
+DateTime scalar input type, allowing Date
+*/
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
 
 /*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
